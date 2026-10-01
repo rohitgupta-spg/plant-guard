@@ -1,0 +1,20 @@
+[
+  {
+    "criticality": "A",
+    "safety_risk": "high",
+    "environmental_impact": "critical",
+    "hourly_downtime_cost_inr": "5000"
+  },
+  {
+    "criticality": "B",
+    "safety_risk": "medium",
+    "environmental_impact": "major",
+    "hourly_downtime_cost_inr": "2500"
+  },
+  {
+    "criticality": "C",
+    "safety_risk": "low",
+    "environmental_impact": "minor",
+    "hourly_downtime_cost_inr": "500"
+  }
+]

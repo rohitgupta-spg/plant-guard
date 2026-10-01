@@ -1,0 +1,63 @@
+2026-09-25 14:34:00,651 | ValidationEngine | [ERROR] | Data entry processing blocked: Invalid metric field value discovered.
+2026-09-25 14:39:28,836 | __main__ | [ERROR] | event_seq_no:43 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 14:39:28,836 | __main__ | [ERROR] | event_seq_no:87 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 14:39:28,836 | __main__ | [ERROR] | event_seq_no:95 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:50:40,801 | __main__ | [ERROR] | event_seq_no:43 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:50:40,802 | __main__ | [ERROR] | event_seq_no:87 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:50:40,802 | __main__ | [ERROR] | event_seq_no:95 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:12,916 | __main__ | [ERROR] | event_seq_no:43 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:12,916 | __main__ | [ERROR] | event_seq_no:87 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:12,916 | __main__ | [ERROR] | event_seq_no:95 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:24,426 | __main__ | [ERROR] | event_seq_no:43 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:24,426 | __main__ | [ERROR] | event_seq_no:87 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 15:51:24,427 | __main__ | [ERROR] | event_seq_no:95 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 17:50:52,587 | __main__ | [ERROR] | event_seq_no:43 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 17:50:52,588 | __main__ | [ERROR] | event_seq_no:87 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 17:50:52,588 | __main__ | [ERROR] | event_seq_no:95 validation_error:1 validation error for MaintenanceEvent
+readings
+  Input should be a valid dictionary or instance of Reading [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/model_type
+2026-09-25 18:34:50,087 | core.tools | [ERROR] | Asset ID 'VPW-CNC-MILL-01' not found in registry.
+2026-09-30 18:12:10,943 | core.tools | [ERROR] | File not found at ./Users/data/plantguard/mock_api/inventory.json

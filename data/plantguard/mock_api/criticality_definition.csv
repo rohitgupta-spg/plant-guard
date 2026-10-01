@@ -1,0 +1,4 @@
+criticality,safety_risk,environmental_impact,hourly_downtime_cost_inr
+A,high,critical,5000
+B,medium,major,2500
+C,low,minor,500
