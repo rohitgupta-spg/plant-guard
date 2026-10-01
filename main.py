@@ -7,6 +7,7 @@ from core.util.logging import setup_custom_logger
 from core.util.utils import get_all_fields
 from core.tools import get_sensor_history, calculate_downtime_cost, check_spare_parts_inventory
 from core.models.maintenance_event import MaintenanceEvent
+from core.services.ingest_resources import chunking, embedding_indexing
 
 
 # First thing, Setup logging
@@ -64,5 +65,9 @@ if __name__ == '__main__':
     # downtime_cost = calculate_downtime_cost("VPW-CNC-MILL-01", 10)
     # pprint(downtime_cost, width=300)
 
-    part_inventory = check_spare_parts_inventory("VPW-P-00000")
-    pprint(part_inventory, width=300)
+    # part_inventory = check_spare_parts_inventory("VPW-P-00000")
+    # pprint(part_inventory, width=300)
+
+    chunking()
+    embedding_indexing()
+

@@ -196,22 +196,13 @@ def embedding_indexing() -> None:
     BATCH_SIZE = 20
 
     points = [
-        PointStruct(
-            id=c["cid"],
-            vector=vecs[c["cid"]],
-            payload=c
-        )
+        PointStruct(id=c["cid"], vector=vecs[c["cid"]], payload=c)
         for c in CHUNKS
     ]
 
     for i in range(0, len(points), BATCH_SIZE):
         batch = points[i:i + BATCH_SIZE]
-
-        client.upsert(
-            COLLECTION,
-            points=batch,
-            wait=True
-        )
+        client.upsert(COLLECTION, points=batch, wait=True)
 
         log.info(f"Uploaded {min(i + BATCH_SIZE, len(points))}/{len(points)} chunks")
 
