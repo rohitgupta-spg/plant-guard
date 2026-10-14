@@ -1,4 +1,6 @@
 __pycache__/
 *.pyc
 .env
+*.DS_Store
 plant_guard_logs.log
+data/plantguard/db/ckpt.db
