@@ -1,8 +1,8 @@
 {
   "domain": "PlantGuard -- Predictive Maintenance & Supply Chain Ops Copilot",
-  "toolkit_version": "1.0.1",
+  "toolkit_version": "1.0.4",
   "complete": true,
-  "generated_at": "2026-09-24T11:58:39.684258+00:00",
+  "generated_at": "2026-10-04T13:15:15.831481+00:00",
   "seed": 42,
   "generator": {
     "provider": "gemini",
@@ -11,19 +11,31 @@
   "assets": {
     "corpus": {
       "count": 13,
-      "index": "corpus/index.json"
+      "index": "corpus/index.json",
+      "resumed": 13
     },
     "intake": {
       "count": 200,
       "path": "intake/records.jsonl",
-      "llm_calls": 10
+      "llm_calls": 0,
+      "resumed": 200
     },
     "mock_api": {
       "tables": {
         "assets": 28,
         "telemetry": 20160,
         "work_orders": 400,
-        "inventory": 280
+        "inventory": 280,
+        "asset_classes": 8,
+        "criticality_matrix": 3,
+        "asset_criticality": 28,
+        "technicians": 40,
+        "technician_calendar": 1120,
+        "work_order_details": 400,
+        "telemetry_pressure": 8640,
+        "suppliers": 12,
+        "part_suppliers": 280,
+        "purchase_orders": 117
       },
       "dir": "mock_api/"
     },
@@ -31,11 +43,12 @@
       "count": 20,
       "by_category": {
         "guardrail": 3,
-        "multi_hop": 6,
-        "unanswerable": 5,
-        "factual": 6
+        "multi_hop": 3,
+        "unanswerable": 6,
+        "factual": 8
       },
-      "path": "eval/golden_set.json"
+      "path": "eval/golden_set.json",
+      "resumed": true
     }
   },
   "public_sources_referenced": [

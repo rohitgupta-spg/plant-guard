@@ -5,7 +5,7 @@
     "section": "safety",
     "markdown": "corpus/markdown/lockout-tagout.md",
     "pdf": "corpus/pdf/lockout-tagout.pdf",
-    "chars": 8313
+    "chars": 8362
   },
   {
     "slug": "permit-to-work",
@@ -13,7 +13,7 @@
     "section": "safety",
     "markdown": "corpus/markdown/permit-to-work.md",
     "pdf": "corpus/pdf/permit-to-work.pdf",
-    "chars": 6140
+    "chars": 6193
   },
   {
     "slug": "maintenance-planning",
@@ -21,7 +21,7 @@
     "section": "operations",
     "markdown": "corpus/markdown/maintenance-planning.md",
     "pdf": "corpus/pdf/maintenance-planning.pdf",
-    "chars": 5939
+    "chars": 5984
   },
   {
     "slug": "spares-procurement",
@@ -29,7 +29,7 @@
     "section": "supply_chain",
     "markdown": "corpus/markdown/spares-procurement.md",
     "pdf": "corpus/pdf/spares-procurement.pdf",
-    "chars": 8205
+    "chars": 8244
   },
   {
     "slug": "alarm-response",
@@ -37,7 +37,7 @@
     "section": "operations",
     "markdown": "corpus/markdown/alarm-response.md",
     "pdf": "corpus/pdf/alarm-response.pdf",
-    "chars": 6982
+    "chars": 7026
   },
   {
     "slug": "manual-cnc-mill",
@@ -45,7 +45,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-cnc-mill.md",
     "pdf": "corpus/pdf/manual-cnc-mill.pdf",
-    "chars": 10589
+    "chars": 10659
   },
   {
     "slug": "manual-hyd-press",
@@ -53,7 +53,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-hyd-press.md",
     "pdf": "corpus/pdf/manual-hyd-press.pdf",
-    "chars": 11500
+    "chars": 11567
   },
   {
     "slug": "manual-conv-belt",
@@ -61,7 +61,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-conv-belt.md",
     "pdf": "corpus/pdf/manual-conv-belt.pdf",
-    "chars": 12493
+    "chars": 12558
   },
   {
     "slug": "manual-air-comp",
@@ -69,7 +69,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-air-comp.md",
     "pdf": "corpus/pdf/manual-air-comp.pdf",
-    "chars": 9814
+    "chars": 9882
   },
   {
     "slug": "manual-ind-oven",
@@ -77,7 +77,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-ind-oven.md",
     "pdf": "corpus/pdf/manual-ind-oven.pdf",
-    "chars": 9187
+    "chars": 9250
   },
   {
     "slug": "manual-pump-cent",
@@ -85,7 +85,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-pump-cent.md",
     "pdf": "corpus/pdf/manual-pump-cent.pdf",
-    "chars": 9443
+    "chars": 9509
   },
   {
     "slug": "manual-robot-weld",
@@ -93,7 +93,7 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-robot-weld.md",
     "pdf": "corpus/pdf/manual-robot-weld.pdf",
-    "chars": 11459
+    "chars": 11524
   },
   {
     "slug": "manual-chiller",
@@ -101,6 +101,6 @@
     "section": "equipment_manual",
     "markdown": "corpus/markdown/manual-chiller.md",
     "pdf": "corpus/pdf/manual-chiller.pdf",
-    "chars": 10717
+    "chars": 10785
   }
 ]

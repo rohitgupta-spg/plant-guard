@@ -79,7 +79,7 @@ def ingest_manuals_sops() -> str:
 
 #####
 # To concatenate text with model name & run through hash function, so same text always gives same key that can be found again
-# Purpose of including model name is if models are switched later, old cached vectors won't be wrongly reused.
+# Purpose of including model name is if datamodel are switched later, old cached vectors won't be wrongly reused.
 #####
 def _ckey(text):  return hashlib.sha1(("gemini-embedding-001::" + text).encode("utf-8")).hexdigest()
 
@@ -144,7 +144,7 @@ def embed_texts(texts):
 
 #####
 # To embed the user's search question
-# Embedding models treat documents (the stuff you store) and queries (what users ask) slightly differently, hence two separate methods.
+# Embedding datamodel treat documents (the stuff you store) and queries (what users ask) slightly differently, hence two separate methods.
 #####
 def embed_query(text):
     v = _cget(text)
@@ -159,12 +159,13 @@ def embed_query(text):
 #####
 def chunking() -> None:
     splitter = RecursiveCharacterTextSplitter(chunk_size=900, chunk_overlap=120)
+    os.makedirs(CACHE_DIR, exist_ok=True)
 
     add_chunks(splitter.split_text(ingest_manuals_sops())[:PAPER_CHUNKS], "Vindhya Precision Works", "Manuals")
 
-    log.info("Total chunks created: ", len(CHUNKS))
-    top_chunk=CHUNKS[0]
-    log.info("\nSample manual chunk:\n", top_chunk["text"][:280])
+    log.info(f"Total chunks created: {len(CHUNKS)}")
+    # top_chunk=CHUNKS[0]
+    # log.info("\nSample manual chunk:\n", top_chunk["text"][:280])
 
 
 #####

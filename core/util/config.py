@@ -12,16 +12,33 @@ class Settings(BaseSettings):
     )
 
     events: str = ""
-    assets: str = ""
-    telemetry: str = ""
-    work_orders: str = ""
-    inventory: str = ""
     evaluation_set: str = ""
+
+    assets: str = ""
+    asset_classes: str = ""
+    asset_criticality: str = ""
+    telemetry: str = ""
+    telemetry_pressure: str = ""
+    purchase_orders: str = ""
+    work_orders: str = ""
+    work_order_details: str = ""
+    inventory: str = ""
+    suppliers: str = ""
+    part_suppliers: str = ""
     criticality_definition: str = ""
-    manuals_and_sops: str = ""
+    criticality_matrix: str = ""
+    technicians: str = ""
+    technician_calendar: str = ""
+
+    manuals_and_sops_pdf: str = ""
+    manuals_and_sops_md: str = ""
+
+    checkpointer_db: str = ""
 
     google_api_key: str = ""
     llm_model: str = ""
+    supermemory_api_key: str = ""
+    user_id: str = ""
 
     qdrant_api_key: str = ""
     qdrant_url: str = ""

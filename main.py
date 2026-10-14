@@ -1,58 +1,41 @@
-import json
 import logging
-from pprint import pprint
-from pydantic import ValidationError, BaseModel
+from tabulate import tabulate
 
+from core.util.config import settings
 from core.util.logging import setup_custom_logger
-from core.util.utils import get_all_fields
-from core.tools import get_sensor_history, calculate_downtime_cost, check_spare_parts_inventory
-from core.models.maintenance_event import MaintenanceEvent
-from core.services.ingest_resources import chunking, embedding_indexing
+from core.util.utils import validate
+from core.datamodel.maintenance_event import MaintenanceEvent
+from core.service.rag import retrieve
+from core.eval.run_eval import run
 
 
 # First thing, Setup logging
 log = setup_custom_logger(__name__, log_level=logging.DEBUG)
 
 
+def init():
 
-"""
-    Validates sensor events log against the schema of Pydantic MaintenanceEvent object
-    Parameters:
-        - path: path to file containing events
-    Returns:
-        - valid_records: list of valid MaintenanceEvent objects
-        - invalid_records: list of invalid MaintenanceEvent objects with validation error
-"""
-def validate_events(path):
-    seq_no = 0
-    invalid_records, invalid_fields, valid_records = [], [], []
-    allowed_fields = get_all_fields(MaintenanceEvent)
-    log.debug(allowed_fields)
+    ## validate all the maintenance events are in adherence with schema; filter out invalid_events at this stage
+    valid_events, invalid_events = validate(settings.events, MaintenanceEvent)
+    log.info(f"Quick break-up as {len(valid_events)} valid events and {len(invalid_events)} invalid events, listed below with respective failure message:")
+    log.info("\n"+tabulate(invalid_events, headers="keys", tablefmt="fancy_grid"))
 
-    try:
-        with (open(path) as f):
-            for event_data in f.readlines():
-                seq_no += 1
-                try:
-                    valid_event = MaintenanceEvent(**json.loads(event_data))
+    ## persist technicians & technician calendar using supermemory (semantic & episodic)
+    # persist_data_to_memory(settings.technician_calendar, "episodic", "shift_start")
 
-                    invalid_fields = [field for field in valid_event.ground_truth.missing_fields if field not in allowed_fields]
-                    if len(invalid_fields) > 0:
-                        log.info(invalid_fields)
-                        invalid_records.append({"event_seq_no":str(seq_no), "validation_error":"Invalid fields in missing fields list"})
-                    else:
-                        valid_records.append(valid_event)
-                except (json.JSONDecodeError, ValidationError) as e:
-                    log.error(f"event_seq_no:{seq_no} validation_error:{e}")
-                    invalid_records.append({"event_seq_no":str(seq_no), "validation_error":str(e)})
-    except FileNotFoundError:
-        log.error(f"File not found at {path}")
+    ## register all the tools developed with LLM framework
 
-    return valid_records, invalid_records
+    ## build RAG pipeline with Manuals and SOPs
+    # build_index()
+    # for payload, score in retrieve("bearing vibration alarm setpoint", asset_class="MANUAL-PUMP-CENT"):
+    #     print(round(score, 2), payload["doc"], payload["section"])
+
 
 
 if __name__ == '__main__':
 
+    init()
+    run()
     # valid_events, invalid_events = validate_events(settings.events)
     #
     # log.info(f"Quick break-up as {len(valid_events)} valid events and {len(invalid_events)} invalid events, listed below with respective failure message:")
@@ -68,6 +51,9 @@ if __name__ == '__main__':
     # part_inventory = check_spare_parts_inventory("VPW-P-00000")
     # pprint(part_inventory, width=300)
 
-    chunking()
-    embedding_indexing()
+    # chunking()
+    # embedding_indexing()
 
+    # technician_available = get_available_technician("Mechanical", "2026-08-10", 'B')
+    # log.info("\n" + tabulate(technician_available, headers="keys", tablefmt="fancy_grid"))
+    # pprint(technician_available, width=300)
