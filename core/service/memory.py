@@ -189,7 +189,7 @@ def recall_procedures(asset_code: str, situation: str, k: int = 3) -> list[str]:
 
 
 """Helper function for prompt formatting """
-#ToDo: to be decided if keep here or moved into util.py
+#ToDo: to be decided if keep here or moved into utils.py
 def format_memory_context(history, facts, procedures) -> str:
     log.debug(f"format_memory_context(): Now formatting context before returning as history")
     if history == "UNAVAILABLE":

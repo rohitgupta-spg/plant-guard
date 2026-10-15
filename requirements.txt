@@ -1,5 +1,6 @@
 autologging==1.3.2
 beautifulsoup4==4.15.0
+fastapi==0.143.0
 fastembed==0.8.1
 flatbuffers==25.12.19
 litellm==1.93.0

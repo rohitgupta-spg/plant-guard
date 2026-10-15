@@ -1,10 +1,11 @@
 import logging
 import re, pathlib
 from qdrant_client import QdrantClient, models
+from fastembed.rerank.cross_encoder import TextCrossEncoder
+
 from core.util.config import settings
 from core.util.logging import setup_custom_logger
 from core.util.utils import chunk_markdown
-from fastembed.rerank.cross_encoder import TextCrossEncoder
 
 
 # First thing, Setup logging

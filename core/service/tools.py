@@ -4,7 +4,7 @@ import pandas as pd
 from typing import cast
 from langchain_core.tools import tool
 from core.util.logging import setup_custom_logger
-
+from fastapi import FastAPI
 
 # First thing, Setup logging
 log = setup_custom_logger(__name__, log_level=logging.DEBUG)
@@ -12,6 +12,7 @@ log = setup_custom_logger(__name__, log_level=logging.DEBUG)
 
 T = {n: pd.read_csv(f"./data/plantguard/mock_api/{n}.csv") for n in
      ["telemetry", "inventory", "asset_criticality", "technician_calendar", "technicians"]}
+app_api = FastAPI(title="PlantGuard")
 
 
 """
@@ -23,6 +24,7 @@ T = {n: pd.read_csv(f"./data/plantguard/mock_api/{n}.csv") for n in
     Returns:
         - dict: Sensor records    
 """
+@app_api.get("/sensor_history/{asset_tag}")
 def get_sensor_history(asset_tag: str, hours_back: int = 24) -> list[dict]:
     df = T["telemetry"].query("asset_tag == @asset_tag").tail(hours_back)
     return df.drop(columns=["seeded_fault"], errors="ignore").to_dict("records")
@@ -44,6 +46,7 @@ def get_sensor_history_tool(asset_tag: str, hours_back: int = 24) -> list[dict]:
     Returns:
         - dict: Total downtime cost along with asset details     
 """
+@app_api.get("/downtime_cost/{asset_tag}/{estimated_downtime_hours}")
 def calculate_downtime_cost(asset_tag: str, estimated_downtime_hours: float) -> float:
     row = T["asset_criticality"].query("asset_tag == @asset_tag").iloc[0]
 
@@ -69,6 +72,7 @@ def calculate_downtime_cost_tool(asset_tag: str, estimated_downtime_hours: float
     Returns:
         - dict: Part details and stock availability     
 """
+@app_api.get("/stock_availability/{part_number}")
 def check_spare_parts_inventory(part_number: str) -> dict:
     r = T["inventory"].query("part_number == @part_number")
     log.debug(f"Loaded {len(r)} records for part number {part_number}")
@@ -95,6 +99,7 @@ def check_spare_parts_inventory_tool(part_number: str) -> dict:
     Returns:
         - dict: List of available Technician with details
 """
+@app_api.get("/technician_availability/{required_skill}/{required_date}/{required_shift}")
 def get_available_technician(required_skill: str, required_date: str, required_shift: str) -> list[dict]:
     cal = T["technician_calendar"].query("date == @required_date and shift == @required_shift and available_hours > 0")
     tech = T["technicians"]
@@ -105,7 +110,7 @@ def get_available_technician(required_skill: str, required_date: str, required_s
 @tool("get_available_technician_tool")
 def get_available_technician_tool(required_skill: str, required_date: str, required_shift: str) -> list[dict]:
     """To fetch technician schedule for a given skill to identify the available technicians."""
-    return check_spare_parts_inventory(required_skill,  required_date, required_shift)
+    return get_available_technician(required_skill,  required_date, required_shift)
 
 
 TOOLS = [get_sensor_history_tool, calculate_downtime_cost_tool, check_spare_parts_inventory_tool, get_available_technician_tool]

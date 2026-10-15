@@ -4,7 +4,6 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.types import interrupt, Command
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
-from networkx.classes import is_empty
 
 from core.datamodel.maintenance_event import MaintenanceEvent
 from core.datamodel.recommendation import Recommendation
@@ -72,7 +71,7 @@ def route(s):
     if s["event"]["sensor_suspect"]:            return "human_review"
     # if (not s["recommendation"]["safety_critical"]
     #         and len(s["recommendation"]["citations"]) == 0
-    #         and s["recommendation"]["action"] == 'INSUFFICIENT_SOURCES'):   return "human_review"
+    #         and s["recommendation"]["action"] == 'INSUFFICIENT_SOURCES'):   return "refuse"
     if s["recommendation"]["safety_critical"]:  return "approval"
     return "autolog"
 

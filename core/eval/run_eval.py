@@ -30,7 +30,7 @@ def run():
                      "cite_ok": all(c in out["recommendation"]["citations"] for c in str(g.must_cite).split(";") if c and c != "nan"),
                      # "clean": str(g.must_not_contain) not in out["recommendation"]["action"] if pd.notna(g.must_not_contain) else True
                      })
-        time.sleep(3)   # ToDo: Hardcoded rate limiting; Update with back-off and conditional (upon 429 failures)
+        time.sleep(1)   # ToDo: Hardcoded rate limiting; Update with back-off and conditional (upon 429 failures)
 
     df = pd.DataFrame(rows)
     print(df.to_markdown())
